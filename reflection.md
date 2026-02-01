@@ -9,21 +9,34 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   (for example: "the secret number kept changing" or "the hints were backwards").
 
 --- Hints were lying (High/Low flipped randomly). If I guess higher than the secret, it should say Too High (go lower) but it would say Too High (go higher).
+--- I have to refresh the game to start a new game every time
 
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+  --- I used COPILOT and GPT 5-mini
 - Give one example of an AI suggestion you accepted and why.
+
+---
+
 - Give one example of an AI suggestion you changed or rejected and why.
+
+---
 
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+  --- If the tests passed and I tried the game play keeping that in mind
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+
+---
+
 - Did AI help you design or understand any tests? How?
+
+---
 
 ---
 
