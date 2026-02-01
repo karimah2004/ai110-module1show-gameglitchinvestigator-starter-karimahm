@@ -10,6 +10,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 --- Hints were lying (High/Low flipped randomly). If I guess higher than the secret, it should say Too High (go lower) but it would say Too High (go higher).
 --- I have to refresh the game to start a new game every time
+--- Message always says "Guess a number between 1 and 100" regardless of chosen difficulty.
 
 ## 2. How did you use AI as a teammate?
 

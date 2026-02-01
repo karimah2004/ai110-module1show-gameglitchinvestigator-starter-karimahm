@@ -91,7 +91,8 @@ if "history" not in st.session_state:
 st.subheader("Make a guess")
 
 st.info(
-    f"Guess a number between 1 and 100. "
+    #FIX HERE: USING VARIABLE TO GENERATE MESSAGE (USING AI COPILOT)
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
@@ -134,7 +135,6 @@ if st.session_state.status != "playing":
     st.stop()
 
 if submit:
-    st.session_state.attempts += 1
 
     ok, guess_int, err = parse_guess(raw_guess)
 
@@ -142,6 +142,8 @@ if submit:
         st.session_state.history.append(raw_guess)
         st.error(err)
     else:
+        # FIX HERE: Increment attempts after validating guess (USING AI COPILOT)
+        st.session_state.attempts += 1
         st.session_state.history.append(guess_int)
 
 #FIX HERE: Secret was being converted to a string, causing incorrect high/low hints (USING AI COPILOT)
@@ -173,6 +175,8 @@ if submit:
                     f"The secret was {st.session_state.secret}. "
                     f"Score: {st.session_state.score}"
                 )
+        # FIX: Force Streamlit to rerun so attempt counter updates immediately after a guess
+        st.rerun()
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
