@@ -8,7 +8,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
 
----
+--- Hints were lying (High/Low flipped randomly). If I guess higher than the secret, it should say Too High (go lower) but it would say Too High (go higher).
 
 ## 2. How did you use AI as a teammate?
 
