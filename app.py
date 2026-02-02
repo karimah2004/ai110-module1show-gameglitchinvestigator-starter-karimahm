@@ -101,7 +101,7 @@ if st.session_state.status != "playing":
         st.error("Game over. Start a new game to try again.")
     st.stop()
 
-# If there is a persisted hint from the last guess, show it (respecting show_hint)
+# If there is a persisted hint from the last guess, show it (respecting show_hint)- USING AI COPILOT
 if st.session_state.last_hint and show_hint:
     st.warning(st.session_state.last_hint)
 
@@ -150,7 +150,10 @@ if submit:
                     f"Score: {st.session_state.score}"
                 )
         # FIX: Force Streamlit to rerun so attempt counter updates immediately after a guess
-        st.rerun()
+        # FIX: Only rerun while still playing (prevents overwriting win/lose message)- USING AI COPILOT
+        if st.session_state.status == "playing":
+            st.rerun()
+
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
