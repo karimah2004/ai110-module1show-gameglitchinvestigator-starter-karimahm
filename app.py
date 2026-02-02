@@ -50,6 +50,10 @@ if "status" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = []
 
+if "last_hint" not in st.session_state:
+    # persist the last hint across reruns so UI can show it after submit
+    st.session_state.last_hint = None
+
 st.subheader("Make a guess")
 
 st.info(
@@ -86,6 +90,7 @@ if new_game:
     st.session_state.score = 0
     st.session_state.status = "playing"
     st.session_state.history = []
+    st.session_state.last_hint = None
     st.success("New game started.")
     st.rerun()
 
@@ -95,6 +100,10 @@ if st.session_state.status != "playing":
     else:
         st.error("Game over. Start a new game to try again.")
     st.stop()
+
+# If there is a persisted hint from the last guess, show it (respecting show_hint)
+if st.session_state.last_hint and show_hint:
+    st.warning(st.session_state.last_hint)
 
 if submit:
 
@@ -113,8 +122,11 @@ if submit:
 
         outcome, message = check_guess(guess_int, secret)
 
+        # Persist the hint so it remains visible after the rerun that follows a guess
         if show_hint:
-            st.warning(message)
+            st.session_state.last_hint = message
+        else:
+            st.session_state.last_hint = None
 
         st.session_state.score = update_score(
             current_score=st.session_state.score,
