@@ -57,11 +57,12 @@ def test_parse_guess_invalid_and_empty():
 
 
 def test_update_score_behaviour():
-    # Win scoring: points = 100 - 10 * (attempt_number + 1) with floor 10
-    assert update_score(0, "Win", 0) == 90
-    assert update_score(0, "Win", 1) == 80
+    # Win scoring: first valid attempt (attempt_number=1) should award 100,
+    # then decrease by 10 per additional attempt, with a floor of 10.
+    assert update_score(0, "Win", 1) == 100
+    assert update_score(0, "Win", 2) == 90
     # when computed points go below 10, floor applies
-    assert update_score(0, "Win", 9) == 10
+    assert update_score(0, "Win", 11) == 10
 
     # Too High: parity-based behavior in current impl.
     assert update_score(10, "Too High", 2) == 15
